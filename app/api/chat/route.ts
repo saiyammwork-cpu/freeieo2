@@ -73,6 +73,7 @@ ${toolsContext}`;
     });
   } catch (error) {
     console.error("Chat API error:", error);
-    return new Response(JSON.stringify({ error: "Something went wrong" }), { status: 500 });
+    const message = error instanceof Error ? error.message : "Something went wrong";
+    return new Response(JSON.stringify({ error: message }), { status: 500 });
   }
 }

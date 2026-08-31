@@ -114,7 +114,10 @@ Rules:
         }),
       });
 
-      if (!response.ok) throw new Error("Failed to send message");
+      if (!response.ok) {
+        const errText = await response.text();
+        throw new Error(errText || "Failed to send message");
+      }
 
       const reader = response.body?.getReader();
       const decoder = new TextDecoder();
@@ -136,7 +139,7 @@ Rules:
       setMessages((prev) =>
         prev.map((m) =>
           m.id === assistantMessageId
-            ? { ...m, content: "Sorry, something went wrong. Please try again." }
+            ? { ...m, content: `Error: ${error instanceof Error ? error.message : "Something went wrong. Please try again."}` }
             : m
         )
       );

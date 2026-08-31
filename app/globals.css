@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #0B0B0F;
+    --foreground: #F5F5F7;
+    --surface: #141419;
+    --surface-border: #232329;
+    --text-muted: #9A9AA5;
+    --accent-violet: #8B5CF6;
+    --accent-pink: #EC4899;
+    --accent-cyan: #22D3EE;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #232329;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a42;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  @apply bg-gradient-to-r from-accent-violet to-accent-pink bg-clip-text text-transparent;
+}
+
+/* Smooth animations */
+* {
+  @apply transition-colors duration-200;
+}

@@ -36,20 +36,14 @@ export default function Home() {
           </p>
 
           <div className="mt-10 flex justify-center">
-            <Link href="/chat">
-              <Button size="lg" className="text-base">
-                Start creating <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <span className="text-sm text-text-muted">Browse tools below or explore the directory.</span>
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-2">
             {examplePrompts.map((prompt) => (
-              <Link key={prompt} href={`/chat?q=${encodeURIComponent(prompt)}`}>
-                <button className="rounded-xl border border-surface-border bg-surface px-4 py-2 text-sm text-text-muted transition-all hover:border-accent-violet/50 hover:text-text-primary hover:scale-105">
-                  {prompt}
-                </button>
-              </Link>
+              <span key={prompt} className="rounded-xl border border-surface-border bg-surface px-4 py-2 text-sm text-text-muted">
+                {prompt}
+              </span>
             ))}
           </div>
         </div>

@@ -7,7 +7,6 @@ import { tools } from "@/data/tools";
 import { ToolCard } from "@/components/tools/tool-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { QuickLaunch } from "@/components/ui/quick-launch";
 import { ToolDialog } from "@/components/tools/tool-dialog";
 
 const categories = [
@@ -118,10 +117,6 @@ export default function ToolsPage() {
         open={!!selectedToolData}
         onClose={() => setSelectedTool(null)}
       />
-
-      <div className="mx-auto max-w-6xl px-4 pb-12">
-        <QuickLaunch onNavigate={(path) => window.location.href = path} />
-      </div>
     </div>
   );
 }

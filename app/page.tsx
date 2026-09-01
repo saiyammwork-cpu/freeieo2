@@ -65,7 +65,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="mt-4 text-xl text-text-muted max-w-2xl mx-auto">
-            Explore {tools.length.toLocaleString()}+ AI tools for work, creativity, business, coding, marketing, education and more.
+            Explore 5,000+ AI tools for work, creativity, business, coding, marketing, education and more.
           </p>
 
           <div className="mt-10 flex justify-center">
@@ -100,7 +100,7 @@ export default function Home() {
           </Suspense>
           <div className="mt-6 text-center">
             <Link href="/ai-tools">
-              <Button variant="outline">View all {tools.length.toLocaleString()}+ tools</Button>
+              <Button variant="outline">View all 5,000+ tools</Button>
             </Link>
           </div>
         </section>

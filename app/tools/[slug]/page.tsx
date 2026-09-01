@@ -26,16 +26,20 @@ export default function ToolDetailPage({ params }: { params: { slug: string } })
 
         <div className="rounded-2xl border border-surface-border bg-surface p-6">
           <h2 className="text-xl font-semibold text-text-primary mb-4">Step-by-step process</h2>
-          <ol className="space-y-4">
-            {tool.steps.map((step, idx) => (
-              <li key={idx} className="flex gap-4 text-text-primary">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-violet to-accent-pink text-sm font-bold text-white">
-                  {idx + 1}
-                </span>
-                {step}
-              </li>
-            ))}
-          </ol>
+          {tool.steps && tool.steps.length > 0 ? (
+            <ol className="space-y-4">
+              {tool.steps.map((step, idx) => (
+                <li key={idx} className="flex gap-4 text-text-primary">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-violet to-accent-pink text-sm font-bold text-white">
+                    {idx + 1}
+                  </span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="text-sm text-text-muted">No step-by-step process available yet.</p>
+          )}
         </div>
       </div>
     </div>

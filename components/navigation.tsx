@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "/ai-tools", label: "AI Tools" },
   { href: "/tools", label: "Tools" },
   { href: "/saved", label: "Saved" },
 ];

@@ -1,18 +1,51 @@
 import Link from "next/link";
-import { ArrowRight, Zap, Layers, Sparkles, ExternalLink } from "lucide-react";
+import { ArrowRight, Zap, Layers, Sparkles, ExternalLink, Star, TrendingUp, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { tools } from "@/data/tools";
+import { Suspense } from "react";
 
 const today = new Date();
 const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
 const toolOfDay = tools[dayOfYear % tools.length];
 
-const examplePrompts = [
-  "Generate slides for free",
-  "Free AI voiceover",
-  "Free logo design",
-  "Write me a prompt for Midjourney",
-];
+const featuredTools = tools.filter((t) => t.featured).slice(0, 6);
+const trendingTools = tools.filter((t) => t.trending).slice(0, 6);
+
+function ToolCardsSkeleton() {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div key={i} className="rounded-2xl border border-surface-border bg-surface p-5">
+          <div className="h-5 w-3/4 rounded bg-surface-border/60 mb-3" />
+          <div className="h-4 w-full rounded bg-surface-border/60 mb-2" />
+          <div className="h-4 w-1/2 rounded bg-surface-border/60" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function FeaturedTools() {
+  const { ToolCard } = require("@/components/tools/tool-card");
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {featuredTools.map((tool, idx) => (
+        <ToolCard key={tool.slug} tool={tool} />
+      ))}
+    </div>
+  );
+}
+
+function TrendingTools() {
+  const { ToolCard } = require("@/components/tools/tool-card");
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {trendingTools.map((tool, idx) => (
+        <ToolCard key={tool.slug} tool={tool} />
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -26,28 +59,65 @@ export default function Home() {
             Built by Saiyam Jain · @saiyam.io
           </div>
           <h1 className="text-5xl font-bold tracking-tight text-text-primary sm:text-6xl">
-            Generate anything.{" "}
+            Discover the Best{" "}
             <span className="bg-gradient-to-r from-accent-violet to-accent-pink bg-clip-text text-transparent">
-              Pay nothing.
+              AI Tools
             </span>
           </h1>
           <p className="mt-4 text-xl text-text-muted max-w-2xl mx-auto">
-            FREEIEO finds the best free and freemium AI tools for any task — and tells you exactly how to use them.
+            Explore {tools.length.toLocaleString()}+ AI tools for work, creativity, business, coding, marketing, education and more.
           </p>
 
           <div className="mt-10 flex justify-center">
-            <span className="text-sm text-text-muted">Browse tools below or explore the directory.</span>
+            <Link href="/ai-tools">
+              <Button size="lg" className="text-base">
+                Browse AI Tools <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-2">
-            {examplePrompts.map((prompt) => (
-              <span key={prompt} className="rounded-xl border border-surface-border bg-surface px-4 py-2 text-sm text-text-muted">
-                {prompt}
-              </span>
+            {["Free AI voiceover", "Free logo design", "Generate slides for free", "AI video editor"].map((prompt) => (
+              <Link key={prompt} href={`/ai-tools?search=${encodeURIComponent(prompt.replace("Free ", ""))}`}>
+                <span className="rounded-xl border border-surface-border bg-surface px-4 py-2 text-sm text-text-muted cursor-pointer hover:border-accent-violet/50 hover:text-text-primary transition-all">
+                  {prompt}
+                </span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Featured Tools */}
+      {featuredTools.length > 0 && (
+        <section className="mx-auto max-w-6xl px-4 py-12">
+          <div className="flex items-center gap-2 mb-6">
+            <Star className="h-5 w-5 text-accent-pink" />
+            <h2 className="text-2xl font-bold text-text-primary">Featured AI Tools</h2>
+          </div>
+          <Suspense fallback={<ToolCardsSkeleton />}>
+            <FeaturedTools />
+          </Suspense>
+          <div className="mt-6 text-center">
+            <Link href="/ai-tools">
+              <Button variant="outline">View all {tools.length.toLocaleString()}+ tools</Button>
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* Trending Tools */}
+      {trendingTools.length > 0 && (
+        <section className="mx-auto max-w-6xl px-4 py-12">
+          <div className="flex items-center gap-2 mb-6">
+            <TrendingUp className="h-5 w-5 text-accent-cyan" />
+            <h2 className="text-2xl font-bold text-text-primary">Trending AI Tools</h2>
+          </div>
+          <Suspense fallback={<ToolCardsSkeleton />}>
+            <TrendingTools />
+          </Suspense>
+        </section>
+      )}
 
       {/* Tool of the Day */}
       {toolOfDay && (
@@ -82,19 +152,19 @@ export default function Home() {
         <div className="grid gap-8 sm:grid-cols-3">
           {[
             {
-              icon: <Layers className="h-6 w-6 text-accent-violet" />,
-              title: "Describe",
-              desc: "Tell FREEIEO what you want to create in plain English.",
+              icon: <Search className="h-6 w-6 text-accent-violet" />,
+              title: "Search",
+              desc: "Search 1,000+ AI tools by name, category, or use case.",
             },
             {
               icon: <Sparkles className="h-6 w-6 text-accent-pink" />,
               title: "Discover",
-              desc: "Get 2-3 best free tools matched to your task with real free-tier limits.",
+              desc: "Find the best free tools matched to your task with real free-tier limits.",
             },
             {
               icon: <ArrowRight className="h-6 w-6 text-accent-cyan" />,
               title: "Create",
-              desc: "Follow the step-by-step process and copy an optimized prompt to paste.",
+              desc: "Follow the step-by-step process and launch your next project for free.",
             },
           ].map((step, i) => (
             <div key={i} className="text-center">

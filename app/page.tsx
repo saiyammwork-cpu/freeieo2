@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Zap, Layers, Sparkles, ExternalLink, Star, TrendingUp, Search } from "lucide-react";
+import { ArrowRight, Zap, Layers, Sparkles, ExternalLink, Star, TrendingUp, Search, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { tools } from "@/data/tools";
 import { Suspense } from "react";
@@ -118,6 +118,31 @@ export default function Home() {
           </Suspense>
         </section>
       )}
+
+      {/* Learn Section */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="rounded-3xl border border-surface-border bg-gradient-to-br from-accent-violet/10 via-surface to-accent-pink/10 p-8 sm:p-12">
+          <div className="flex items-center gap-2 mb-4">
+            <GraduationCap className="h-6 w-6 text-accent-violet" />
+            <h2 className="text-2xl font-bold text-text-primary">Learn AI & Vibe Coding</h2>
+          </div>
+          <p className="text-text-muted max-w-2xl mb-8">
+            Practical courses and tutorials to help you master AI tools, prompt engineering, and AI-powered development workflows.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/learn">
+              <Button size="lg" variant="default">
+                Explore Courses <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <a href="https://jainsaiyam.in" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline">
+                Visit jainsaiyam.in <ExternalLink className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Tool of the Day */}
       {toolOfDay && (

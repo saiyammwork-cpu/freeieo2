@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,17 +10,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0B0B0F",
-        foreground: "#F5F5F7",
-        surface: "#141419",
-        "surface-border": "#232329",
-        border: "#232329",
-        "text-primary": "#F5F5F7",
-        "text-muted": "#9A9AA5",
+        background: "hsl(var(--background) / <alpha-value>)",
+        foreground: "hsl(var(--foreground) / <alpha-value>)",
+        surface: "hsl(var(--surface) / <alpha-value>)",
+        "surface-border": "hsl(var(--surface-border) / <alpha-value>)",
+        border: "hsl(var(--surface-border) / <alpha-value>)",
+        "text-primary": "hsl(var(--foreground) / <alpha-value>)",
+        "text-muted": "hsl(var(--text-muted) / <alpha-value>)",
         accent: {
-          violet: "#8B5CF6",
-          pink: "#EC4899",
-          cyan: "#22D3EE",
+          violet: "hsl(var(--accent-violet) / <alpha-value>)",
+          pink: "hsl(var(--accent-pink) / <alpha-value>)",
+          cyan: "hsl(var(--accent-cyan) / <alpha-value>)",
         },
       },
       fontFamily: {

@@ -65,9 +65,9 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-    if (!description || description.length < 10 || description.length > 600) {
+    if (!description || description.length < 5 || description.length > 800) {
       return NextResponse.json(
-        { error: "description must be 10-600 chars" },
+        { error: "description must be 5-800 chars" },
         { status: 400 }
       );
     }

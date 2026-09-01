@@ -32,8 +32,23 @@ export function JugadSubmitForm({ onCreated }: Props) {
     setError(null);
   }
 
+  function validate(): string | null {
+    if (!toolName.trim()) return "Tool name is required.";
+    if (!jugadTitle.trim()) return "Jugad title is required.";
+    if (description.trim().length < 5) return "Description must be at least 5 characters.";
+    if (description.trim().length > 800) return "Description must be under 800 characters.";
+    return null;
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const validationError = validate();
+    if (validationError) {
+      setError(validationError);
+      setSuccess(null);
+      return;
+    }
+
     setError(null);
     setSuccess(null);
     setSubmitting(true);
@@ -47,12 +62,12 @@ export function JugadSubmitForm({ onCreated }: Props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          toolName,
-          jugadTitle,
-          description,
+          toolName: toolName.trim(),
+          jugadTitle: jugadTitle.trim(),
+          description: description.trim(),
           steps: stepsArr,
-          category,
-          submittedBy,
+          category: category.trim(),
+          submittedBy: submittedBy.trim(),
         }),
       });
 
@@ -94,6 +109,8 @@ export function JugadSubmitForm({ onCreated }: Props) {
     );
   }
 
+  const descTooShort = description.trim().length > 0 && description.trim().length < 5;
+
   return (
     <div className="mb-10 rounded-2xl border border-accent-violet/30 bg-surface p-6 sm:p-8">
       <div className="flex items-center justify-between mb-4">
@@ -111,7 +128,7 @@ export function JugadSubmitForm({ onCreated }: Props) {
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className="block text-sm font-medium text-text-primary mb-1">
@@ -155,14 +172,19 @@ export function JugadSubmitForm({ onCreated }: Props) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-text-primary mb-1">
-            Description <span className="text-accent-pink">*</span>
-            <span className="ml-2 text-xs text-text-muted">({description.length}/600)</span>
+          <label className="flex items-center justify-between text-sm font-medium text-text-primary mb-1">
+            <span>
+              Description <span className="text-accent-pink">*</span>
+              <span className="ml-2 text-xs font-normal text-text-muted">
+                ({description.trim().length}/800)
+              </span>
+            </span>
+            {descTooShort && (
+              <span className="text-xs text-accent-pink">min 5 chars</span>
+            )}
           </label>
           <textarea
             required
-            minLength={10}
-            maxLength={600}
             rows={4}
             value={description}
             onChange={(e) => setDescription(e.target.value)}

@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/ai-tools", label: "AI Tools" },
-  { href: "/local-ai", label: "Local AI" },
   { href: "/jugad", label: "Jugad" },
   { href: "/saved", label: "Saved" },
 ];
@@ -41,6 +41,9 @@ export function Navigation() {
                 {item.label}
               </Link>
             ))}
+            <div className="ml-2">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>

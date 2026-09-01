@@ -4,14 +4,25 @@
 
 @layer base {
   :root {
-    --background: #0B0B0F;
-    --foreground: #F5F5F7;
-    --surface: #141419;
-    --surface-border: #232329;
-    --text-muted: #9A9AA5;
-    --accent-violet: #8B5CF6;
-    --accent-pink: #EC4899;
-    --accent-cyan: #22D3EE;
+    --background: 0 0% 98%;
+    --foreground: 240 10% 6%;
+    --surface: 0 0% 100%;
+    --surface-border: 240 6% 88%;
+    --text-muted: 240 5% 40%;
+    --accent-violet: 263 70% 58%;
+    --accent-pink: 330 81% 60%;
+    --accent-cyan: 187 92% 50%;
+  }
+
+  .dark {
+    --background: 240 10% 6%;
+    --foreground: 240 6% 96%;
+    --surface: 240 7% 9%;
+    --surface-border: 240 5% 17%;
+    --text-muted: 240 5% 62%;
+    --accent-violet: 263 70% 65%;
+    --accent-pink: 330 81% 65%;
+    --accent-cyan: 187 92% 55%;
   }
 }
 
@@ -30,14 +41,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0B0F;
+  background: hsl(var(--background));
 }
 ::-webkit-scrollbar-thumb {
-  background: #232329;
+  background: hsl(var(--surface-border));
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a42;
+  background: hsl(var(--text-muted));
 }
 
 /* Gradient text utility */

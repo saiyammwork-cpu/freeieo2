@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Lightbulb,
@@ -12,7 +11,6 @@ import {
   CreditCard,
   AlertTriangle,
   Smartphone,
-  ArrowRight,
 } from "lucide-react";
 import JugadClient from "./JugadClient";
 
@@ -202,11 +200,11 @@ export default function JugadPage() {
         </div>
 
         <div className="mt-10 text-center">
-          <Link href="/learn">
+          <a href="https://jainsaiyam.in" target="_blank" rel="noopener noreferrer">
             <Button size="lg" variant="outline">
-              Explore AI Courses <ArrowRight className="ml-2 h-5 w-5" />
+              Visit jainsaiyam.in <ExternalLink className="ml-2 h-5 w-5" />
             </Button>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

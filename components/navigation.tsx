@@ -8,10 +8,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/ai-tools", label: "AI Tools" },
-  { href: "/free-ai-tools", label: "Free AI" },
-  { href: "/open-source-ai", label: "Open Source" },
   { href: "/local-ai", label: "Local AI" },
-  { href: "/learn", label: "Learn" },
   { href: "/jugad", label: "Jugad" },
   { href: "/saved", label: "Saved" },
 ];

@@ -7,8 +7,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "FREEIEO — 1,000+ Free AI Tools & Websites Directory",
-  description: "Discover 1000+ AI tools for writing, coding, design, marketing, video, productivity, automation and more. Find the best free and paid AI tools in one directory.",
+  title: "FREEIEO — 5,000+ Free AI Tools & Websites Directory",
+  description: "Discover 5000+ AI tools for writing, coding, design, marketing, video, productivity, automation and more. Find the best free and paid AI tools in one directory.",
 };
 
 export default function RootLayout({

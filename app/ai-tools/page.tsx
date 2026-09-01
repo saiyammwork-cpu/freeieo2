@@ -179,7 +179,7 @@ export default function DirectoryPage() {
       <div className="mx-auto max-w-7xl px-4 py-12">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-text-primary">
-            1,000+ <span className="gradient-text">AI Tools</span> Directory
+            5,000+ <span className="gradient-text">AI Tools</span> Directory
           </h1>
           <p className="mt-2 text-text-muted max-w-2xl mx-auto">
             Discover the best free and paid AI tools for writing, coding, design, video, marketing, and more.
@@ -192,7 +192,7 @@ export default function DirectoryPage() {
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search 1000+ AI tools..."
+              placeholder="Search 5000+ AI tools..."
               className="pl-12 h-12 text-base"
             />
             {search && (

@@ -179,7 +179,7 @@ export default function Home() {
             {
               icon: <Search className="h-6 w-6 text-accent-violet" />,
               title: "Search",
-              desc: "Search 1,000+ AI tools by name, category, or use case.",
+              desc: "Search 5,000+ AI tools by name, category, or use case.",
             },
             {
               icon: <Sparkles className="h-6 w-6 text-accent-pink" />,

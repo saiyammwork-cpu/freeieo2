@@ -113,7 +113,7 @@ export default function DirectoryPage() {
         (t) =>
           t.category === selectedCategory ||
           t.categories?.includes(selectedCategory) ||
-          t.subcategories?.includes(selectedCategory)
+          (t as unknown as { subcategories?: string[] }).subcategories?.includes(selectedCategory)
       );
     }
 

@@ -10,6 +10,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/ai-tools", label: "AI Tools" },
+  { href: "/prompts", label: "Prompts" },
   { href: "/jugad", label: "Jugad" },
   { href: "/freeieo-ai", label: "Freeieo AI" },
   { href: "/saved", label: "Saved" },

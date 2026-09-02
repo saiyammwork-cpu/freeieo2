@@ -68,10 +68,16 @@ export default function Home() {
             Explore 5,000+ AI tools for work, creativity, business, coding, marketing, education and more.
           </p>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link href="/ai-tools">
               <Button size="lg" className="text-base">
                 Browse AI Tools <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/prompts">
+              <Button size="lg" variant="outline" className="text-base">
+                <Sparkles className="mr-2 h-5 w-5 text-accent-cyan" />
+                Free Website Prompts
               </Button>
             </Link>
           </div>

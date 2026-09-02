@@ -140,8 +140,8 @@ export default function DirectoryPage() {
         break;
       case "free-first":
         result.sort((a, b) => {
-          const aFree = (a as unknown as { freeTier?: boolean }).freeTier || a.pricing === "Free" || a.pricing === "Completely Free" || a.pricing === "Open Source" ? 0 : 1;
-          const bFree = (b as unknown as { freeTier?: boolean }).freeTier || b.pricing === "Free" || b.pricing === "Completely Free" || b.pricing === "Open Source" ? 0 : 1;
+          const aFree = (a as unknown as { freeTier?: boolean }).freeTier || a.pricing === "Free" || a.pricing === "Open Source" ? 0 : 1;
+          const bFree = (b as unknown as { freeTier?: boolean }).freeTier || b.pricing === "Free" || b.pricing === "Open Source" ? 0 : 1;
           return aFree - bFree;
         });
         break;

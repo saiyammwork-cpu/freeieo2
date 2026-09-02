@@ -29,12 +29,14 @@ const Dialog: React.FC<DialogProps> = ({ open, onOpenChange, children }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
         onClick={() => onOpenChange(false)}
       />
-      <div className="relative z-10 w-full max-w-lg mx-4">{children}</div>
+      <div className="relative z-10 w-full sm:max-w-lg mx-0 sm:mx-4 max-h-[90vh] overflow-y-auto">
+        {children}
+      </div>
     </div>
   );
 };
@@ -44,7 +46,8 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
     <div
       ref={ref}
       className={cn(
-        "relative bg-surface border border-surface-border rounded-2xl shadow-2xl backdrop-blur-md",
+        "relative bg-surface border border-surface-border shadow-2xl backdrop-blur-md",
+        "rounded-t-2xl sm:rounded-2xl",
         className
       )}
       {...props}
@@ -52,6 +55,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
       {onClose && (
         <button
           onClick={onClose}
+          aria-label="Close"
           className="absolute right-4 top-4 rounded-lg p-1 text-text-muted hover:text-text-primary transition-colors"
         >
           <X className="h-4 w-4" />
@@ -64,7 +68,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
 DialogContent.displayName = "DialogContent";
 
 const DialogHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ className, ...props }) => (
-  <div className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  <div className={cn("flex flex-col space-y-1.5 p-4 sm:p-6", className)} {...props} />
 );
 
 const DialogTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({ className, ...props }) => (

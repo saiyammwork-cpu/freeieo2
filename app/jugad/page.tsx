@@ -85,17 +85,17 @@ export default function JugadPage() {
     <div className="min-h-screen bg-background">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-pink/10 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-5xl px-4 pt-24 pb-12 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-4 py-1.5 text-sm text-text-muted">
+        <div className="relative mx-auto max-w-5xl px-4 pt-20 pb-10 text-center sm:pt-24 sm:pb-12">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-4 py-1.5 text-xs sm:text-sm text-text-muted">
             <Lightbulb className="h-4 w-4 text-accent-pink" />
             Desi Jugaad · Smart Workarounds
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-primary">
             <span className="bg-gradient-to-r from-accent-violet to-accent-pink bg-clip-text text-transparent">
               Jugad
             </span>
           </h1>
-          <p className="mt-4 text-lg text-text-muted max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-text-muted max-w-2xl mx-auto px-2">
             Learn how to use <strong className="text-text-primary">freemium</strong> and{" "}
             <strong className="text-text-primary">premium</strong> AI tools for free using
             legitimate tricks, open-source alternatives, and smart workarounds.
@@ -104,11 +104,11 @@ export default function JugadPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-12">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-text-primary">
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
             Community <span className="gradient-text">Jugads</span>
           </h2>
-          <p className="mt-3 text-text-muted max-w-2xl">
+          <p className="mt-3 text-sm sm:text-base text-text-muted max-w-2xl">
             Real workarounds shared by the community. Submit your own below and it will appear here instantly.
           </p>
         </div>
@@ -116,7 +116,7 @@ export default function JugadPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-12">
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
           {methods.map((method, idx) => (
             <div
               key={idx}
@@ -140,7 +140,7 @@ export default function JugadPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-12">
-        <div className="rounded-2xl border border-accent-pink/30 bg-gradient-to-br from-accent-pink/10 via-surface to-accent-violet/10 p-6 sm:p-10">
+        <div className="rounded-2xl border border-accent-pink/30 bg-gradient-to-br from-accent-pink/10 via-surface to-accent-violet/10 p-5 sm:p-6 sm:p-10">
           <div className="flex items-center gap-2 mb-4">
             <AlertTriangle className="h-6 w-6 text-accent-pink" />
             <h2 className="text-2xl font-bold text-text-primary">Important Warning</h2>
@@ -154,11 +154,11 @@ export default function JugadPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-text-primary">
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
             Learn <span className="gradient-text">Much More</span>
           </h2>
-          <p className="mt-3 text-text-muted max-w-2xl mx-auto">
+          <p className="mt-3 text-sm sm:text-base text-text-muted max-w-2xl mx-auto px-2">
             Discover more workarounds, test cards, temporary mobile numbers, temporary
             emails, and step-by-step tutorials on jainsaiyam.in.
           </p>

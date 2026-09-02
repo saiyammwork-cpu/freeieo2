@@ -11,17 +11,17 @@ export default function FreeieoAIPage() {
     <div className="min-h-screen bg-background">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-violet/10 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-6xl px-4 pt-24 pb-8 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-4 py-1.5 text-sm text-text-muted">
+        <div className="relative mx-auto max-w-6xl px-4 pt-20 pb-6 text-center sm:pt-24 sm:pb-8">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-4 py-1.5 text-xs sm:text-sm text-text-muted">
             <Sparkles className="h-4 w-4 text-accent-violet" />
             AI Tool Discovery · Recommendations
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-text-primary">
             <span className="bg-gradient-to-r from-accent-violet to-accent-pink bg-clip-text text-transparent">
               Freeieo AI
             </span>
           </h1>
-          <p className="mt-4 text-lg text-text-muted max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-text-muted max-w-2xl mx-auto px-2">
             Chat with our AI assistant to discover the best free and freemium AI tools
             tailored to your needs. Get instant recommendations, comparisons, and
             alternatives — all in one place.
@@ -34,7 +34,7 @@ export default function FreeieoAIPage() {
           <iframe
             src="https://chatbot.getmindpal.com/freeieo-ai-ai-tool-discovery-recommendation-engine-bpt?theme=dark"
             allow="clipboard-read; clipboard-write; microphone"
-            style={{ width: "100%", height: "100%", minHeight: "700px" }}
+            style={{ width: "100%", height: "70vh", minHeight: "560px" }}
             title="Freeieo AI Chatbot"
           />
         </div>

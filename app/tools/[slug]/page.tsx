@@ -13,27 +13,27 @@ export default function ToolDetailPage({ params }: { params: { slug: string } })
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-4xl px-4 py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-text-primary">{tool.name}</h1>
-          <p className="mt-2 text-text-muted">{tool.description}</p>
-          <p className="mt-1 text-sm text-accent-cyan">{tool.freeTierNote}</p>
-          <p className="mt-1 text-sm text-text-muted italic">{tool.bestFor}</p>
+      <div className="mx-auto max-w-4xl px-4 py-10 sm:py-12">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-text-primary break-words">{tool.name}</h1>
+          <p className="mt-2 text-sm sm:text-base text-text-muted">{tool.description}</p>
+          <p className="mt-1 text-sm text-accent-cyan break-words">{tool.freeTierNote}</p>
+          <p className="mt-1 text-sm text-text-muted italic break-words">{tool.bestFor}</p>
           <a href={tool.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block">
-            <Button variant="default">Open tool</Button>
+            <Button variant="default" className="w-full sm:w-auto">Open tool</Button>
           </a>
         </div>
 
-        <div className="rounded-2xl border border-surface-border bg-surface p-6">
-          <h2 className="text-xl font-semibold text-text-primary mb-4">Step-by-step process</h2>
+        <div className="rounded-2xl border border-surface-border bg-surface p-5 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-semibold text-text-primary mb-4">Step-by-step process</h2>
           {tool.steps && tool.steps.length > 0 ? (
             <ol className="space-y-4">
               {tool.steps.map((step, idx) => (
-                <li key={idx} className="flex gap-4 text-text-primary">
+                <li key={idx} className="flex gap-3 sm:gap-4 text-sm sm:text-base text-text-primary">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-violet to-accent-pink text-sm font-bold text-white">
                     {idx + 1}
                   </span>
-                  {step}
+                  <span className="min-w-0 break-words">{step}</span>
                 </li>
               ))}
             </ol>

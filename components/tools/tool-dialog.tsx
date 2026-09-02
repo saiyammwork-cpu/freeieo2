@@ -25,11 +25,11 @@ export function ToolDialog({ tool, open, onClose }: { tool: Tool | null; open: b
           </div>
           <p className="text-sm text-text-muted">{tool.description}</p>
         </DialogHeader>
-        <div className="mt-4 space-y-4">
+        <div className="mt-4 space-y-4 px-4 sm:px-6 pb-6">
           <div className="rounded-xl bg-background p-4 border border-surface-border">
             <p className="text-xs font-medium uppercase tracking-wider text-text-muted mb-1">Free tier limits</p>
-            <p className="text-sm text-accent-cyan">{tool.freeTierNote}</p>
-            {tool.bestFor && <p className="text-xs text-text-muted mt-1 italic">{tool.bestFor}</p>}
+            <p className="text-sm text-accent-cyan break-words">{tool.freeTierNote}</p>
+            {tool.bestFor && <p className="text-xs text-text-muted mt-1 italic break-words">{tool.bestFor}</p>}
           </div>
 
           <div>
@@ -41,7 +41,7 @@ export function ToolDialog({ tool, open, onClose }: { tool: Tool | null; open: b
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-violet to-accent-pink text-xs font-bold text-white">
                       {idx + 1}
                     </span>
-                    {step}
+                    <span className="min-w-0 break-words">{step}</span>
                   </li>
                 ))}
               </ol>

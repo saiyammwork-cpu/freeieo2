@@ -25,23 +25,23 @@ export default function SavedPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        <h1 className="text-4xl font-bold text-text-primary">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
+        <h1 className="text-3xl sm:text-4xl font-bold text-text-primary">
           Your <span className="gradient-text">Saved</span> Tools
         </h1>
-        <p className="mt-2 text-text-muted">
+        <p className="mt-2 text-sm sm:text-base text-text-muted">
           Bookmarked tools and prompts for quick access.
         </p>
 
         <div className="mt-8">
-          <h2 className="text-xl font-semibold text-text-primary mb-4">Bookmarked Tools ({savedToolData.length})</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-text-primary mb-4">Bookmarked Tools ({savedToolData.length})</h2>
           {savedToolData.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-surface-border bg-surface p-12 text-center">
+            <div className="rounded-2xl border border-dashed border-surface-border bg-surface p-8 sm:p-12 text-center">
               <Bookmark className="mx-auto h-12 w-12 text-text-muted mb-4" />
               <p className="text-text-muted">No saved tools yet. Browse the directory and bookmark your favorites.</p>
             </div>
           ) : (
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {savedToolData.map((tool, idx) => (
                 <motion.div
                   key={tool.slug}

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Search, SlidersHorizontal, ChevronDown, X, Sparkles, TrendingUp, Star } from "lucide-react";
+import { Search, SlidersHorizontal, X, Sparkles, TrendingUp, Star } from "lucide-react";
 import { tools } from "@/data/tools";
 import { ToolCard } from "@/components/tools/tool-card";
 import { ToolDialog } from "@/components/tools/tool-dialog";
@@ -63,13 +63,16 @@ const categories = [
   { value: "other", label: "Other AI Tools" },
 ];
 
-const pricingOptions = ["Free", "Freemium", "Paid", "Free Trial", "Open Source"];
+const pricingOptions = ["Completely Free", "Free", "Freemium", "Paid", "Free Trial", "Open Source", "Self Hosted", "Local", "Free + Open Source", "Free API", "Community Edition"];
 
 const sortOptions = [
   { value: "popular", label: "Most Popular" },
   { value: "featured", label: "Featured" },
   { value: "trending", label: "Trending" },
   { value: "newest", label: "Newest" },
+  { value: "free-first", label: "Free First" },
+  { value: "open-source-first", label: "Open Source First" },
+  { value: "local-first", label: "Local AI First" },
   { value: "az", label: "A-Z" },
   { value: "za", label: "Z-A" },
 ];
@@ -80,10 +83,12 @@ export default function DirectoryPage() {
   const [search, setSearch] = React.useState("");
   const [selectedCategory, setSelectedCategory] = React.useState("all");
   const [selectedPricing, setSelectedPricing] = React.useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
   const [sortBy, setSortBy] = React.useState("popular");
   const [currentPage, setCurrentPage] = React.useState(1);
   const [selectedTool, setSelectedTool] = React.useState<Tool | null>(null);
   const [mounted, setMounted] = React.useState(false);
+  const [filtersOpen, setFiltersOpen] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
@@ -107,12 +112,17 @@ export default function DirectoryPage() {
       result = result.filter(
         (t) =>
           t.category === selectedCategory ||
-          t.categories?.includes(selectedCategory)
+          t.categories?.includes(selectedCategory) ||
+          t.subcategories?.includes(selectedCategory)
       );
     }
 
     if (selectedPricing.length > 0) {
       result = result.filter((t) => selectedPricing.includes(t.pricing));
+    }
+
+    if (selectedTags.length > 0) {
+      result = result.filter((t) => selectedTags.some(tag => t.tags.includes(tag)));
     }
 
     switch (sortBy) {
@@ -128,6 +138,19 @@ export default function DirectoryPage() {
       case "newest":
         result.sort((a, b) => b.addedAt.localeCompare(a.addedAt));
         break;
+      case "free-first":
+        result.sort((a, b) => {
+          const aFree = a.freeTier || a.pricing === "Free" || a.pricing === "Completely Free" || a.pricing === "Open Source" ? 0 : 1;
+          const bFree = b.freeTier || b.pricing === "Free" || b.pricing === "Completely Free" || b.pricing === "Open Source" ? 0 : 1;
+          return aFree - bFree;
+        });
+        break;
+      case "open-source-first":
+        result.sort((a, b) => (b.openSource ? 1 : 0) - (a.openSource ? 1 : 0));
+        break;
+      case "local-first":
+        result.sort((a, b) => (b.localAI ? 1 : 0) - (a.localAI ? 1 : 0));
+        break;
       case "az":
         result.sort((a, b) => a.name.localeCompare(b.name));
         break;
@@ -137,27 +160,32 @@ export default function DirectoryPage() {
     }
 
     return result;
-  }, [search, selectedCategory, selectedPricing, sortBy]);
+  }, [search, selectedCategory, selectedPricing, selectedTags, sortBy]);
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const paginated = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   React.useEffect(() => {
     setCurrentPage(1);
-  }, [search, selectedCategory, selectedPricing, sortBy]);
+  }, [search, selectedCategory, selectedPricing, selectedTags, sortBy]);
 
   const togglePricing = (p: string) => {
     setSelectedPricing((prev) => (prev.includes(p) ? prev.filter((x) => x !== p) : [...prev, p]));
+  };
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags((prev) => (prev.includes(tag) ? prev.filter((x) => x !== tag) : [...prev, tag]));
   };
 
   const clearFilters = () => {
     setSearch("");
     setSelectedCategory("all");
     setSelectedPricing([]);
+    setSelectedTags([]);
     setSortBy("popular");
   };
 
-  const hasActiveFilters = search || selectedCategory !== "all" || selectedPricing.length > 0;
+  const hasActiveFilters = search || selectedCategory !== "all" || selectedPricing.length > 0 || selectedTags.length > 0;
 
   if (!mounted) {
     return (
@@ -176,38 +204,48 @@ export default function DirectoryPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-text-primary">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:py-12">
+        <div className="text-center mb-8 sm:mb-10 px-2">
+          <h1 className="text-3xl sm:text-4xl font-bold text-text-primary">
             5,000+ <span className="gradient-text">AI Tools</span> Directory
           </h1>
-          <p className="mt-2 text-text-muted max-w-2xl mx-auto">
+          <p className="mt-2 text-sm sm:text-base text-text-muted max-w-2xl mx-auto">
             Discover the best free and paid AI tools for writing, coding, design, video, marketing, and more.
           </p>
         </div>
 
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="relative max-w-2xl mx-auto">
             <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-text-muted" />
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search 5000+ AI tools..."
-              className="pl-12 h-12 text-base"
+              className="pl-12 h-11 sm:h-12 text-base"
             />
             {search && (
               <button
                 onClick={() => setSearch("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-text-muted hover:text-text-primary"
+                aria-label="Clear search"
               >
                 <X className="h-4 w-4" />
               </button>
             )}
           </div>
+
+          <div className="mt-4 lg:hidden flex justify-center">
+            <Button variant="outline" size="sm" onClick={() => setFiltersOpen(true)}>
+              <SlidersHorizontal className="mr-2 h-4 w-4" /> Filters
+              {hasActiveFilters && (
+                <span className="ml-2 inline-flex h-2 w-2 rounded-full bg-accent-pink" />
+              )}
+            </Button>
+          </div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
-          <aside className="lg:w-64 shrink-0">
+          <aside className="hidden lg:block lg:w-64 shrink-0">
             <div className="rounded-2xl border border-surface-border bg-surface p-4 lg:sticky lg:top-20">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="font-semibold text-text-primary flex items-center gap-2">
@@ -240,7 +278,7 @@ export default function DirectoryPage() {
                 </div>
               </div>
 
-              <div>
+              <div className="mb-6">
                 <h3 className="text-sm font-medium text-text-primary mb-2">Pricing</h3>
                 <div className="flex flex-wrap gap-2">
                   {pricingOptions.map((p) => (
@@ -259,21 +297,13 @@ export default function DirectoryPage() {
                   ))}
                 </div>
               </div>
-            </div>
-          </aside>
 
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between mb-4">
-              <p className="text-sm text-text-muted">
-                Showing {filtered.length} {filtered.length === 1 ? "tool" : "tools"}
-                {selectedCategory !== "all" && ` in ${categories.find((c) => c.value === selectedCategory)?.label}`}
-              </p>
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-text-muted">Sort by</span>
+              <div>
+                <h3 className="text-sm font-medium text-text-primary mb-2">Sort by</h3>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="h-9 rounded-xl border border-surface-border bg-background px-3 text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-violet/40"
+                  className="w-full h-9 rounded-xl border border-surface-border bg-background px-3 text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-violet/40"
                 >
                   {sortOptions.map((opt) => (
                     <option key={opt.value} value={opt.value}>
@@ -282,6 +312,15 @@ export default function DirectoryPage() {
                   ))}
                 </select>
               </div>
+            </div>
+          </aside>
+
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center justify-between mb-4 px-1">
+              <p className="text-xs sm:text-sm text-text-muted">
+                Showing {filtered.length} {filtered.length === 1 ? "tool" : "tools"}
+                {selectedCategory !== "all" && ` in ${categories.find((c) => c.value === selectedCategory)?.label}`}
+              </p>
             </div>
 
             {paginated.length === 0 ? (
@@ -336,6 +375,100 @@ export default function DirectoryPage() {
           </div>
         </div>
       </div>
+
+      {filtersOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true">
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setFiltersOpen(false)}
+          />
+          <div className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-2xl bg-surface border-t border-surface-border p-5 shadow-2xl">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-semibold text-text-primary flex items-center gap-2">
+                <SlidersHorizontal className="h-4 w-4" /> Filters
+              </h2>
+              <button
+                onClick={() => setFiltersOpen(false)}
+                aria-label="Close filters"
+                className="rounded-lg p-1 text-text-muted hover:text-text-primary"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                className="mb-4 text-sm text-accent-pink hover:underline"
+              >
+                Clear all filters
+              </button>
+            )}
+
+            <div className="mb-6">
+              <h3 className="text-sm font-medium text-text-primary mb-2">Categories</h3>
+              <div className="space-y-1 max-h-56 overflow-y-auto">
+                {categories.map((cat) => (
+                  <button
+                    key={cat.value}
+                    onClick={() => {
+                      setSelectedCategory(cat.value);
+                      setFiltersOpen(false);
+                    }}
+                    className={cn(
+                      "w-full text-left text-sm px-3 py-2 rounded-lg transition-colors",
+                      selectedCategory === cat.value
+                        ? "bg-gradient-to-r from-accent-violet to-accent-pink text-white"
+                        : "text-text-muted hover:text-text-primary hover:bg-surface-border/40"
+                    )}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h3 className="text-sm font-medium text-text-primary mb-2">Pricing</h3>
+              <div className="flex flex-wrap gap-2">
+                {pricingOptions.map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => togglePricing(p)}
+                    className={cn(
+                      "rounded-full px-3 py-1 text-xs border transition-colors",
+                      selectedPricing.includes(p)
+                        ? "bg-gradient-to-r from-accent-violet to-accent-pink text-white border-transparent"
+                        : "border-surface-border text-text-muted hover:text-text-primary"
+                    )}
+                  >
+                    {p}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-2">
+              <h3 className="text-sm font-medium text-text-primary mb-2">Sort by</h3>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="w-full h-10 rounded-xl border border-surface-border bg-background px-3 text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-violet/40"
+              >
+                {sortOptions.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <Button className="mt-6 w-full" onClick={() => setFiltersOpen(false)}>
+              Show {filtered.length} results
+            </Button>
+          </div>
+        </div>
+      )}
 
       <ToolDialog tool={selectedTool} open={!!selectedTool} onClose={() => setSelectedTool(null)} />
     </div>

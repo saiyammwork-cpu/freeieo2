@@ -53,18 +53,18 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-violet/10 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-4xl px-4 pt-32 pb-20 text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-4 py-1.5 text-sm text-text-muted">
+        <div className="relative mx-auto max-w-4xl px-4 pt-20 pb-12 text-center sm:pt-32 sm:pb-20">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-4 py-1.5 text-xs sm:text-sm text-text-muted">
             <Sparkles className="h-4 w-4 text-accent-pink" />
             Built by Saiyam Jain · @saiyam.io
           </div>
-          <h1 className="text-5xl font-bold tracking-tight text-text-primary sm:text-6xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-text-primary">
             Discover the Best{" "}
             <span className="bg-gradient-to-r from-accent-violet to-accent-pink bg-clip-text text-transparent">
               AI Tools
             </span>
           </h1>
-          <p className="mt-4 text-xl text-text-muted max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-xl text-text-muted max-w-2xl mx-auto px-2">
             Explore 5,000+ AI tools for work, creativity, business, coding, marketing, education and more.
           </p>
 
@@ -76,10 +76,10 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
+          <div className="mt-8 flex flex-wrap justify-center gap-2 px-2">
             {["Free AI voiceover", "Free logo design", "Generate slides for free", "AI video editor"].map((prompt) => (
               <Link key={prompt} href={`/ai-tools?search=${encodeURIComponent(prompt.replace("Free ", ""))}`}>
-                <span className="rounded-xl border border-surface-border bg-surface px-4 py-2 text-sm text-text-muted cursor-pointer hover:border-accent-violet/50 hover:text-text-primary transition-all">
+                <span className="inline-block rounded-xl border border-surface-border bg-surface px-4 py-2 text-sm text-text-muted cursor-pointer hover:border-accent-violet/50 hover:text-text-primary transition-all">
                   {prompt}
                 </span>
               </Link>
@@ -93,7 +93,7 @@ export default function Home() {
         <section className="mx-auto max-w-6xl px-4 py-12">
           <div className="flex items-center gap-2 mb-6">
             <Star className="h-5 w-5 text-accent-pink" />
-            <h2 className="text-2xl font-bold text-text-primary">Featured AI Tools</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-text-primary">Featured AI Tools</h2>
           </div>
           <Suspense fallback={<ToolCardsSkeleton />}>
             <FeaturedTools />
@@ -111,7 +111,7 @@ export default function Home() {
         <section className="mx-auto max-w-6xl px-4 py-12">
           <div className="flex items-center gap-2 mb-6">
             <TrendingUp className="h-5 w-5 text-accent-cyan" />
-            <h2 className="text-2xl font-bold text-text-primary">Trending AI Tools</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-text-primary">Trending AI Tools</h2>
           </div>
           <Suspense fallback={<ToolCardsSkeleton />}>
             <TrendingTools />
@@ -122,20 +122,20 @@ export default function Home() {
 {/* Tool of the Day */}
       {toolOfDay && (
         <section className="mx-auto max-w-4xl px-4 py-12">
-          <div className="rounded-2xl border border-accent-violet/30 bg-gradient-to-br from-accent-violet/5 to-accent-pink/5 p-6">
+          <div className="rounded-2xl border border-accent-violet/30 bg-gradient-to-br from-accent-violet/5 to-accent-pink/5 p-5 sm:p-6">
             <div className="flex items-center gap-2 mb-4">
               <Zap className="h-5 w-5 text-accent-violet" />
               <h2 className="text-lg font-semibold text-text-primary">Tool of the Day</h2>
             </div>
-            <div className="flex items-start justify-between">
-              <div>
-                <h3 className="text-2xl font-bold text-text-primary">{toolOfDay.name}</h3>
-                <p className="mt-1 text-text-muted">{toolOfDay.description}</p>
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div className="min-w-0">
+                <h3 className="text-xl sm:text-2xl font-bold text-text-primary break-words">{toolOfDay.name}</h3>
+                <p className="mt-1 text-sm sm:text-base text-text-muted">{toolOfDay.description}</p>
                 <p className="mt-2 text-sm text-accent-cyan">{toolOfDay.freeTierNote}</p>
                 <p className="mt-1 text-sm text-text-muted italic">{toolOfDay.bestFor}</p>
               </div>
-              <a href={toolOfDay.url} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline">
+              <a href={toolOfDay.url} target="_blank" rel="noopener noreferrer" className="shrink-0">
+                <Button variant="outline" className="w-full sm:w-auto">
                   Try it <ExternalLink className="ml-1 h-3 w-3" />
                 </Button>
               </a>
@@ -145,8 +145,8 @@ export default function Home() {
       )}
 
       {/* How it works */}
-      <section className="mx-auto max-w-4xl px-4 py-20">
-        <h2 className="text-center text-3xl font-bold text-text-primary mb-12">
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:py-20">
+        <h2 className="text-center text-2xl sm:text-3xl font-bold text-text-primary mb-10 sm:mb-12">
           How it <span className="gradient-text">works</span>
         </h2>
         <div className="grid gap-8 sm:grid-cols-3">

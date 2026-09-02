@@ -48,7 +48,7 @@ export default function LocalAIPage() {
   }, []);
 
   const localTools = React.useMemo(() => {
-    return tools.filter(t => (t as unknown as { localAI?: boolean }).localAI || (t as unknown as { selfHosted?: boolean }).selfHosted || t.pricing === "Local" || t.pricing === "Self Hosted");
+    return tools.filter(t => (t as unknown as { localAI?: boolean }).localAI || (t as unknown as { selfHosted?: boolean }).selfHosted);
   }, []);
 
   const filtered = React.useMemo(() => {

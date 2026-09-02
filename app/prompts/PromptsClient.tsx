@@ -12,6 +12,7 @@ import {
   Layers,
   ArrowRight,
   Tag,
+  ImageIcon,
 } from "lucide-react";
 import { prompts, type Prompt } from "@/data/prompts";
 import { promptCategories } from "@/data/prompt-categories";
@@ -52,6 +53,21 @@ function PromptCard({
       className="group relative flex h-full flex-col rounded-2xl border border-surface-border bg-surface p-5 text-left transition-all hover:border-accent-violet/40 hover:shadow-xl hover:shadow-accent-violet/10"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-violet/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+
+      {prompt.previewImage && (
+        <div className="relative -mt-1 -mx-1 mb-3 overflow-hidden rounded-xl border border-surface-border bg-background">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={prompt.previewImage}
+            alt={`${prompt.title} preview`}
+            loading="lazy"
+            className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="pointer-events-none absolute right-2 top-2 inline-flex items-center gap-1 rounded-md bg-black/55 px-1.5 py-0.5 text-[10px] font-medium text-white backdrop-blur">
+            <ImageIcon className="h-3 w-3" /> Preview
+          </div>
+        </div>
+      )}
 
       <div className="mb-3 flex items-start justify-between gap-2">
         <Badge variant="outline" className="capitalize">
@@ -207,6 +223,16 @@ function PromptDialog({
             </div>
 
             <div className="flex-1 overflow-y-auto p-5">
+              {prompt.previewImage && (
+                <div className="relative mb-4 overflow-hidden rounded-xl border border-surface-border bg-background">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={prompt.previewImage}
+                    alt={`${prompt.title} preview`}
+                    className="aspect-[16/9] w-full object-cover"
+                  />
+                </div>
+              )}
               <p className="text-sm text-text-muted">{prompt.description}</p>
 
               <div className="mt-4 flex flex-wrap gap-1.5">

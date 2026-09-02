@@ -32,6 +32,17 @@ export default function RootLayout({
       <head>
         <meta name="monetag" content="89ea6593fa76921c47d3c190a566a2bd" />
         <script
+          id="aclib"
+          type="text/javascript"
+          src="//acscdn.com/script/aclib.js"
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `aclib.runAutoTag({ zoneId: 'geqyes3nhe' });`,
+          }}
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}else{document.documentElement.classList.remove('dark');document.documentElement.style.colorScheme='light';}}catch(e){}})();`,
           }}

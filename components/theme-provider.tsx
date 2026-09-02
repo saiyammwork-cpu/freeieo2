@@ -13,13 +13,13 @@ type ThemeContextValue = {
 const ThemeContext = React.createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = React.useState<Theme>("dark");
+  const [theme, setThemeState] = React.useState<Theme>("light");
 
   React.useEffect(() => {
     const root = document.documentElement;
     const initial: Theme =
       (localStorage.getItem("theme") as Theme) ||
-      (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     setThemeState(initial);
     root.classList.toggle("dark", initial === "dark");
     root.style.colorScheme = initial;
@@ -51,7 +51,7 @@ export function useTheme() {
   const ctx = React.useContext(ThemeContext);
   if (!ctx) {
     return {
-      theme: "dark" as Theme,
+      theme: "light" as Theme,
       toggleTheme: () => {},
       setTheme: () => {},
     };

@@ -10,6 +10,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/ai-tools", label: "AI Tools" },
   { href: "/jugad", label: "Jugad" },
+  { href: "/freeieo-ai", label: "Freeieo AI" },
   { href: "/saved", label: "Saved" },
 ];
 

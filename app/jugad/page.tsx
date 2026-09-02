@@ -12,7 +12,6 @@ import {
   AlertTriangle,
   Smartphone,
 } from "lucide-react";
-import JugadClient from "./JugadClient";
 
 const methods = [
   {
@@ -101,18 +100,6 @@ export default function JugadPage() {
             legitimate tricks, open-source alternatives, and smart workarounds.
           </p>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-4 pb-12">
-        <div className="mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">
-            Community <span className="gradient-text">Jugads</span>
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-text-muted max-w-2xl">
-            Real workarounds shared by the community. Submit your own below and it will appear here instantly.
-          </p>
-        </div>
-        <JugadClient />
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-12">

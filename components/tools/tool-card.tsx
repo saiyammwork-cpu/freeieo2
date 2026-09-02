@@ -56,22 +56,22 @@ export function ToolCard({ tool }: { tool: Tool }) {
             <p className="mt-1 text-xs text-accent-cyan break-words">{tool.freeTierNote}</p>
           )}
           <div className="mt-2 flex flex-wrap gap-1">
-            {tool.openSource && (
+            {(tool as unknown as { openSource?: boolean }).openSource && (
               <span className="rounded-lg bg-green-500/10 px-2 py-0.5 text-xs text-green-400 border border-green-500/20">
                 Open Source
               </span>
             )}
-            {tool.localAI && (
+            {(tool as unknown as { localAI?: boolean }).localAI && (
               <span className="rounded-lg bg-blue-500/10 px-2 py-0.5 text-xs text-blue-400 border border-blue-500/20">
                 Local AI
               </span>
             )}
-            {tool.selfHosted && (
+            {(tool as unknown as { selfHosted?: boolean }).selfHosted && (
               <span className="rounded-lg bg-purple-500/10 px-2 py-0.5 text-xs text-purple-400 border border-purple-500/20">
                 Self Hosted
               </span>
             )}
-            {tool.freeTier && !tool.pricing.includes("Paid") && (
+            {(tool as unknown as { freeTier?: boolean }).freeTier && !tool.pricing.includes("Paid") && (
               <span className="rounded-lg bg-accent-violet/10 px-2 py-0.5 text-xs text-accent-violet border border-accent-violet/20">
                 Free
               </span>

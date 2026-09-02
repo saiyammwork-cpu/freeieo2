@@ -140,16 +140,16 @@ export default function DirectoryPage() {
         break;
       case "free-first":
         result.sort((a, b) => {
-          const aFree = a.freeTier || a.pricing === "Free" || a.pricing === "Completely Free" || a.pricing === "Open Source" ? 0 : 1;
-          const bFree = b.freeTier || b.pricing === "Free" || b.pricing === "Completely Free" || b.pricing === "Open Source" ? 0 : 1;
+          const aFree = (a as unknown as { freeTier?: boolean }).freeTier || a.pricing === "Free" || a.pricing === "Completely Free" || a.pricing === "Open Source" ? 0 : 1;
+          const bFree = (b as unknown as { freeTier?: boolean }).freeTier || b.pricing === "Free" || b.pricing === "Completely Free" || b.pricing === "Open Source" ? 0 : 1;
           return aFree - bFree;
         });
         break;
       case "open-source-first":
-        result.sort((a, b) => (b.openSource ? 1 : 0) - (a.openSource ? 1 : 0));
+        result.sort((a, b) => ((b as unknown as { openSource?: boolean }).openSource ? 1 : 0) - ((a as unknown as { openSource?: boolean }).openSource ? 1 : 0));
         break;
       case "local-first":
-        result.sort((a, b) => (b.localAI ? 1 : 0) - (a.localAI ? 1 : 0));
+        result.sort((a, b) => ((b as unknown as { localAI?: boolean }).localAI ? 1 : 0) - ((a as unknown as { localAI?: boolean }).localAI ? 1 : 0));
         break;
       case "az":
         result.sort((a, b) => a.name.localeCompare(b.name));

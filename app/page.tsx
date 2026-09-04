@@ -3,6 +3,16 @@ import { ArrowRight, Zap, Sparkles, ExternalLink, Star, TrendingUp, Search } fro
 import { Button } from "@/components/ui/button";
 import { tools } from "@/data/tools";
 import { Suspense } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Freeieo — 5,000+ AI Tools & Websites Directory",
+  description:
+    "Discover 5,000+ AI tools for writing, coding, design, marketing, video, productivity, automation and more. Find the best free and paid AI tools curated by Saiyam Jain.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const today = new Date();
 const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
@@ -49,7 +59,7 @@ function TrendingTools() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-violet/10 via-transparent to-transparent" />
@@ -201,6 +211,6 @@ export default function Home() {
           </p>
         </div>
       </footer>
-    </div>
+    </main>
   );
 }

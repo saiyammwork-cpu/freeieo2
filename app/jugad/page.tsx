@@ -12,6 +12,30 @@ import {
   AlertTriangle,
   Smartphone,
 } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jugad — Smart Workarounds to Use AI Tools for Free | Freeieo",
+  description:
+    "Learn legitimate tricks to use freemium AI tools for free. Discover free trials, open-source alternatives, student plans, and smart workarounds by Saiyam Jain.",
+  alternates: {
+    canonical: "/jugad",
+  },
+  openGraph: {
+    title: "Jugad — Smart Workarounds to Use AI Tools for Free | Freeieo",
+    description:
+      "Learn legitimate tricks to use freemium AI tools for free. Discover free trials, open-source alternatives, student plans, and smart workarounds.",
+    url: "https://jainsaiyam.in/jugad",
+    siteName: "Freeieo",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jugad — Smart Workarounds to Use AI Tools for Free | Freeieo",
+    description:
+      "Learn legitimate tricks to use freemium AI tools for free. Discover free trials, open-source alternatives, student plans, and smart workarounds.",
+  },
+};
 
 const methods = [
   {
@@ -81,7 +105,7 @@ const resources = [
 
 export default function JugadPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-pink/10 via-transparent to-transparent" />
         <div className="relative mx-auto max-w-5xl px-4 pt-20 pb-10 text-center sm:pt-24 sm:pb-12">
@@ -194,6 +218,6 @@ export default function JugadPage() {
           </a>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

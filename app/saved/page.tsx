@@ -24,7 +24,7 @@ export default function SavedPage() {
   const savedToolData = tools.filter((t) => savedTools.includes(t.slug));
 
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
         <h1 className="text-3xl sm:text-4xl font-bold text-text-primary">
           Your <span className="gradient-text">Saved</span> Tools
@@ -72,6 +72,6 @@ export default function SavedPage() {
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 }

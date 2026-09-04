@@ -1,14 +1,32 @@
 import { Sparkles } from "lucide-react";
+import type { Metadata } from "next";
 
 export const metadata = {
-  title: "Freeieo AI · Freeieo",
+  title: "Freeieo AI — Free AI Tool Discovery Assistant",
   description:
-    "Discover and get AI tool recommendations with Freeieo AI — your personal AI tool discovery assistant.",
+    "Discover and get AI tool recommendations with Freeieo AI — your personal AI tool discovery assistant. Chat to find the best free AI tools.",
+  alternates: {
+    canonical: "/freeieo-ai",
+  },
+  openGraph: {
+    title: "Freeieo AI — Free AI Tool Discovery Assistant",
+    description:
+      "Discover and get AI tool recommendations with Freeieo AI — your personal AI tool discovery assistant.",
+    url: "https://jainsaiyam.in/freeieo-ai",
+    siteName: "Freeieo",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Freeieo AI — Free AI Tool Discovery Assistant",
+    description:
+      "Discover and get AI tool recommendations with Freeieo AI — your personal AI tool discovery assistant.",
+  },
 };
 
 export default function FreeieoAIPage() {
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-violet/10 via-transparent to-transparent" />
         <div className="relative mx-auto max-w-6xl px-4 pt-20 pb-6 text-center sm:pt-24 sm:pb-8">
@@ -39,6 +57,6 @@ export default function FreeieoAIPage() {
           />
         </div>
       </section>
-    </div>
+    </main>
   );
 }

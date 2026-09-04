@@ -203,7 +203,7 @@ export default function DirectoryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:py-12">
         <div className="text-center mb-8 sm:mb-10 px-2">
           <h1 className="text-3xl sm:text-4xl font-bold text-text-primary">
@@ -471,6 +471,6 @@ export default function DirectoryPage() {
       )}
 
       <ToolDialog tool={selectedTool} open={!!selectedTool} onClose={() => setSelectedTool(null)} />
-    </div>
+    </main>
   );
 }

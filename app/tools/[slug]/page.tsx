@@ -2,9 +2,40 @@ import { notFound } from "next/navigation";
 import { tools } from "@/data/tools";
 import { Button } from "@/components/ui/button";
 import { ToolDialog } from "@/components/tools/tool-dialog";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return tools.map((tool) => ({ slug: tool.slug }));
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const tool = tools.find((t) => t.slug === params.slug);
+  if (!tool) {
+    return {
+      title: "Tool Not Found — Freeieo",
+      description: "The requested AI tool could not be found in the Freeieo directory.",
+    };
+  }
+
+  return {
+    title: `${tool.name} — Free AI Tool | Freeieo`,
+    description: `${tool.description} Free tier: ${tool.freeTierNote}. Best for: ${tool.bestFor}.`,
+    alternates: {
+      canonical: `/tools/${tool.slug}`,
+    },
+    openGraph: {
+      title: `${tool.name} — Free AI Tool | Freeieo`,
+      description: tool.description,
+      url: `https://jainsaiyam.in/tools/${tool.slug}`,
+      siteName: "Freeieo",
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title: `${tool.name} — Free AI Tool | Freeieo`,
+      description: tool.description,
+    },
+  };
 }
 
 export default function ToolDetailPage({ params }: { params: { slug: string } }) {
@@ -12,7 +43,7 @@ export default function ToolDetailPage({ params }: { params: { slug: string } })
   if (!tool) return notFound();
 
   return (
-    <div className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background">
       <div className="mx-auto max-w-4xl px-4 py-10 sm:py-12">
         <div className="mb-6 sm:mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-text-primary break-words">{tool.name}</h1>
@@ -42,6 +73,6 @@ export default function ToolDetailPage({ params }: { params: { slug: string } })
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

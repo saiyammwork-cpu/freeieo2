@@ -93,6 +93,12 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <meta name="monetag" content="89ea6593fa76921c47d3c190a566a2bd" />
+        <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+        <script type="text/javascript">
+          aclib.runAutoTag({
+            zoneId: "cnxqeyjjnc",
+          });
+        </script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

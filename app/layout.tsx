@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Navigation } from "@/components/navigation";
 import { ToastProvider } from "@/components/ui/toast";
@@ -93,13 +93,16 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <meta name="monetag" content="89ea6593fa76921c47d3c190a566a2bd" />
-        <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
-        <script type="text/javascript">
-          aclib.runInPagePush({
-            zoneId: "12108522",
-            maxAds: 2,
-          });
-        </script>
+        <script
+          id="aclib"
+          type="text/javascript"
+          src="//acscdn.com/script/aclib.js"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `aclib.runInPagePush({ zoneId: "12108522", maxAds: 2 });`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

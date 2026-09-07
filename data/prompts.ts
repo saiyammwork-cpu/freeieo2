@@ -203,4 +203,648 @@ Premium futuristic AI/robotics landing page. Cyberpunk robotics laboratory, futu
     tool: "Any",
     free: true,
   },
+  {
+    id: "nexus-saaS",
+    title: "Nexus — Modern SaaS Landing Page",
+    category: "saas",
+    style: "Modern SaaS · Glassmorphism · Indigo/Violet · Single file",
+    description:
+      "A clean, modern SaaS landing page for a fictional product called Nexus. Features a glassmorphism header, gradient accents, feature grid, pricing cards, and a strong CTA. Perfect for AI tools, dev tools, or B2B SaaS.",
+    previewImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for a modern SaaS landing page called "Nexus".
+
+FONTS
+- Google Fonts Inter (weights 300, 400, 500, 600, 700)
+- Preconnect to https://fonts.googleapis.com and https://fonts.gstatic.com
+
+COLORS
+- Background: #0f0f14
+- Surface: rgba(255, 255, 255, 0.03)
+- Border: rgba(255, 255, 255, 0.08)
+- Text primary: #f8fafc
+- Text muted: #94a3b8
+- Accent indigo: #6366f1
+- Accent violet: #8b5cf6
+- Accent cyan: #06b6d4
+
+STRUCTURE
+1. NAVIGATION
+   - Fixed top, glassmorphism background (backdrop-filter: blur(20px))
+   - Logo "Nexus" on left with small gradient icon
+   - Links: Features, Pricing, About, Contact
+   - CTA button "Get Started" with gradient bg
+
+2. HERO SECTION
+   - Centered, max-width 800px
+   - Badge: "New: AI-powered workflows"
+   - H1: "Ship faster with intelligent automation" (text-5xl, font-bold, gradient text)
+   - Subtitle: "Nexus helps teams automate repetitive work, connect tools, and ship products 10x faster."
+   - Two buttons: "Start free trial" (gradient) and "Watch demo" (outline)
+   - Abstract 3D-style illustration area using CSS gradients and shapes
+
+3. FEATURES SECTION
+   - Section title: "Everything you need"
+   - 3x2 grid of feature cards
+   - Each card: icon, title, description
+   - Glassmorphism cards with hover border glow
+
+4. PRICING SECTION
+   - 3 cards: Starter ($0), Pro ($29), Enterprise (Custom)
+   - Highlight Pro card with gradient border
+   - Checkmarks for features
+
+5. CTA SECTION
+   - Full-width gradient background
+   - "Ready to get started?" heading
+   - Email input + button
+
+6. FOOTER
+   - Logo, links, copyright
+
+ANIMATIONS
+- Subtle fade-in on scroll using IntersectionObserver
+- Hover scale on cards
+- Smooth gradient animation on CTA button
+
+RESPONSIVE
+- Mobile: stack layouts, smaller text, hamburger menu placeholder
+- Tablet: 2-column grids
+- Desktop: full layout
+
+Make it look premium, minimal, and fast. Use subtle shadows, rounded corners (16px-24px), and smooth transitions.`,
+
+    tags: ["saas", "landing-page", "glassmorphism", "gradient", "modern"],
+    difficulty: "Medium",
+    tool: "v0",
+    free: true,
+  },
+  {
+    id: "lumina-portfolio",
+    title: "Lumina — Minimal Dark Portfolio",
+    category: "portfolio",
+    style: "Minimal Dark · Developer · Typography-focused · Single file",
+    description:
+      "A minimal, dark-themed portfolio for a creative developer. Features large typography, subtle animations, project grid, and a clean contact section. No clutter, just content.",
+    previewImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for a minimal dark developer portfolio called "Lumina".
+
+FONTS
+- Google Fonts Inter (400, 500, 600) + JetBrains Mono for code snippets
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #0a0a0f
+- Surface: #111118
+- Border: #1e1e2e
+- Text primary: #e2e8f0
+- Text secondary: #94a3b8
+- Accent: #22d3ee (cyan)
+
+STRUCTURE
+1. HERO
+   - Full viewport height
+   - Large name "Alex Chen" with gradient accent on "Chen"
+   - Title: "Full-stack developer & designer"
+   - Short bio paragraph
+   - Social links: GitHub, Twitter, LinkedIn, Email
+   - Subtle grid background pattern using CSS
+
+2. PROJECTS
+   - Section title "Selected Work"
+   - 2-column grid of project cards
+   - Each card: title, description, tags, link
+   - Hover: subtle border glow and lift
+
+3. ABOUT
+   - Split layout: text left, skills right
+   - Skills as small tags/pills
+   - Tech stack icons using simple SVG or emoji
+
+4. CONTACT
+   - Simple: "Let's work together"
+   - Email link + social links
+   - Minimal form placeholder or just email
+
+ANIMATIONS
+- Staggered fade-in on scroll
+- Subtle parallax on hero
+- Hover effects on project cards
+
+TYPOGRAPHY
+- Large headings (clamp for responsiveness)
+- Generous whitespace
+- High contrast
+
+Make it feel premium, quiet, and confident. No flashy effects.`,
+
+    tags: ["portfolio", "minimal", "dark", "developer", "typography"],
+    difficulty: "Medium",
+    tool: "Any",
+    free: true,
+  },
+  {
+    id: "cartflow-ecommerce",
+    title: "CartFlow — Clean E-commerce Template",
+    category: "ecommerce",
+    style: "Clean E-commerce · Product-focused · Minimal · Single file",
+    description:
+      "A clean, product-focused e-commerce template for a lifestyle brand. Features a hero banner, product grid, category filters, and a simple cart UI.",
+    previewImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for a clean e-commerce template called "CartFlow".
+
+FONTS
+- Google Fonts Inter (400, 500, 600, 700)
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #fafafa
+- Surface: #ffffff
+- Border: #e5e7eb
+- Text primary: #111827
+- Text secondary: #6b7280
+- Accent: #0f172a (near-black)
+
+STRUCTURE
+1. HEADER
+   - Sticky, white bg, subtle bottom border
+   - Logo "CartFlow" + search icon + cart icon + menu
+   - Nav links: Shop, Categories, About, Contact
+
+2. HERO BANNER
+   - Full-width, soft gradient background
+   - Heading: "Summer Collection 2025"
+   - Subtitle: "Minimal essentials for everyday life"
+   - CTA button: "Shop Now"
+
+3. CATEGORIES
+   - Horizontal scroll or grid: Men, Women, Accessories, Home, New Arrivals
+   - Each category card with image placeholder and label
+
+4. PRODUCT GRID
+   - 4 columns on desktop, 2 on mobile
+   - Product cards: image area, title, price, "Add to cart" button
+   - Hover: shadow and slight scale
+   - Sale badge on discounted items
+
+5. NEWSLETTER
+   - Simple: "Join our newsletter"
+   - Email input + subscribe button
+
+6. FOOTER
+   - Columns: Shop, Help, Company, Social
+
+IMAGES
+- Use https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80 for hero
+- Use https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80 for products
+- Use https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80 for accessories
+
+Make it feel like a premium lifestyle brand. Clean whites, sharp typography, generous spacing.`,
+
+    tags: ["ecommerce", "shop", "minimal", "product", "lifestyle"],
+    difficulty: "Medium",
+    tool: "v0",
+    free: true,
+  },
+  {
+    id: "metric-dashboard",
+    title: "Metric — Dark Analytics Dashboard",
+    category: "dashboard",
+    style: "Dark Dashboard · Analytics · Data-heavy · Single file",
+    description:
+      "A dark analytics dashboard template with charts, metrics cards, data tables, and sidebar navigation. Great for SaaS analytics, admin panels, or internal tools.",
+    previewImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for a dark analytics dashboard called "Metric".
+
+FONTS
+- Google Fonts Inter (400, 500, 600)
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #0f172a
+- Surface: #1e293b
+- Surface hover: #334155
+- Border: #334155
+- Text primary: #f1f5f9
+- Text secondary: #94a3b8
+- Success: #22c55e
+- Warning: #f59e0b
+- Danger: #ef4444
+- Info: #3b82f6
+
+STRUCTURE
+1. SIDEBAR
+   - Left, 260px wide
+   - Logo "Metric"
+   - Nav: Dashboard, Analytics, Customers, Reports, Settings
+   - User profile at bottom
+
+2. TOP BAR
+   - Search input
+   - Notifications bell
+   - User avatar
+
+3. METRICS ROW
+   - 4 metric cards: Revenue, Users, Conversion, Bounce Rate
+   - Each: label, value, trend indicator (up/down arrow + %)
+
+4. CHARTS ROW
+   - 2 large chart cards using Chart.js CDN
+   - Line chart: Revenue over 12 months
+   - Bar chart: Traffic sources
+
+5. TABLE SECTION
+   - Recent transactions or users table
+   - Columns: Name, Email, Status, Amount, Date
+   - Pagination placeholder
+
+ANIMATIONS
+- Smooth chart animations
+- Hover states on rows
+- Sidebar active indicator
+
+Use Chart.js from CDN for charts. Make data look realistic.`,
+
+    tags: ["dashboard", "analytics", "dark", "charts", "admin"],
+    difficulty: "Advanced",
+    tool: "Cursor",
+    free: true,
+  },
+  {
+    id: "vertex-agency",
+    title: "Vertex — Bold Creative Agency",
+    category: "agency",
+    style: "Bold Agency · Colorful · Experimental · Single file",
+    description:
+      "A bold, experimental landing page for a creative agency. Features oversized typography, vibrant gradients, asymmetric layouts, and a showreel-style hero.",
+    previewImage: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for a bold creative agency called "Vertex".
+
+FONTS
+- Google Fonts Space Grotesk (400, 500, 600, 700) + Inter (400)
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #0a0a0a
+- Text primary: #ffffff
+- Text secondary: #a1a1aa
+- Accent 1: #ff3366 (hot pink)
+- Accent 2: #7c3aed (violet)
+- Accent 3: #06b6d4 (cyan)
+
+STRUCTURE
+1. HERO
+   - Full viewport, black background
+   - Oversized heading: "WE CREATE DIGITAL EXPERIENCES"
+   - Words alternate colors: white, pink, violet, cyan
+   - Subtitle: "A creative agency for brands that refuse to blend in."
+   - Scroll indicator at bottom
+
+2. WORK / PROJECTS
+   - Asymmetric grid: large featured project left, 2 smaller right
+   - Project cards with hover overlay showing title + category
+   - Marquee-style scrolling text between sections
+
+3. SERVICES
+   - List layout: Service name left, description right
+   - Alternating colors for each service
+   - Services: Branding, Web Design, Development, Motion, Strategy
+
+4. MARQUEE
+   - Infinite horizontal scroll of client names or capabilities
+   - CSS animation, no JS needed
+
+5. CONTACT
+   - Large CTA: "Let's talk"
+   - Email + social links
+   - Minimal footer
+
+ANIMATIONS
+- Text reveal on scroll
+- Hover color shifts
+- Smooth marquee
+- Parallax on project images
+
+Make it loud, confident, and unapologetically bold.`,
+
+    tags: ["agency", "creative", "bold", "colorful", "experimental"],
+    difficulty: "Advanced",
+    tool: "Any",
+    free: true,
+  },
+  {
+    id: "savora-restaurant",
+    title: "Savora — Elegant Restaurant Website",
+    category: "restaurant",
+    style: "Elegant Restaurant · Warm · Serif typography · Single file",
+    description:
+      "An elegant, warm restaurant website template. Features a hero video background, menu preview, reservation form, and beautiful food photography.",
+    previewImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for an elegant restaurant website called "Savora".
+
+FONTS
+- Google Fonts Playfair Display (400, 500, 600, 700) for headings
+- Google Fonts Inter (300, 400, 500) for body
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #0c0a09
+- Surface: #1c1917
+- Text primary: #fafaf9
+- Text secondary: #a8a29e
+- Accent: #d6d3d1 (warm stone)
+- Gold accent: #d4a574
+
+STRUCTURE
+1. HERO
+   - Full viewport, dark background with subtle grain texture
+   - Restaurant name "Savora" in large Playfair Display
+   - Tagline: "Modern Italian cuisine"
+   - CTA: "Reserve a table"
+   - Subtle parallax background image of restaurant interior
+
+2. ABOUT
+   - Image left, text right
+   - Short story about the restaurant
+   - Chef signature
+
+3. MENU PREVIEW
+   - 3 columns: Antipasti, Main, Dolci
+   - Each item: name, description, price
+   - Elegant dividers
+
+4. GALLERY
+   - Masonry-style grid of food photos
+   - Hover: subtle zoom and caption
+
+5. RESERVATION
+   - Simple form: date, time, guests, name, email
+   - Warm, inviting design
+
+6. FOOTER
+   - Address, hours, phone, Instagram
+
+IMAGES
+- https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80
+- https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80
+- https://images.unsplash.com/photo-1567620905732-2d01ec7ab71e?w=800&q=80
+
+Make it feel warm, intimate, and premium.`,
+
+    tags: ["restaurant", "elegant", "warm", "menu", "serif"],
+    difficulty: "Medium",
+    tool: "Bolt",
+    free: true,
+  },
+  {
+    id: "launchpad-startup",
+    title: "Launchpad — Startup Landing Page",
+    category: "startup",
+    style: "Minimal Startup · Clean · Waitlist-focused · Single file",
+    description:
+      "A minimal, conversion-focused startup landing page. Features a clean hero, feature highlights, social proof, and a prominent email waitlist form.",
+    previewImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for a startup landing page called "Launchpad".
+
+FONTS
+- Google Fonts Inter (400, 500, 600, 700)
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #ffffff
+- Surface: #f8fafc
+- Border: #e2e8f0
+- Text primary: #0f172a
+- Text secondary: #475569
+- Accent: #0f172a (dark) or #3b82f6 (blue)
+
+STRUCTURE
+1. NAV
+   - Minimal, logo left, "Join waitlist" button right
+   - Transparent, becomes solid on scroll
+
+2. HERO
+   - Centered, max-width 640px
+   - Badge: "Backed by Y Combinator"
+   - H1: "The future of [industry] is here"
+   - Subtitle: "One sentence about what the product does and who it's for."
+   - Email input + "Join waitlist" button
+   - "No credit card required" microcopy
+
+3. SOCIAL PROOF
+   - "Trusted by teams at"
+   - 4-5 company logos (use text/SVG placeholders)
+
+4. FEATURES
+   - 3 columns
+   - Each: icon, title, 1-line description
+   - Clean, minimal cards
+
+5. HOW IT WORKS
+   - 3 steps with numbers
+   - Simple timeline layout
+
+6. TESTIMONIAL
+   - One large quote
+   - Author name, title, company
+
+7. CTA BANNER
+   - "Ready to get started?"
+   - Email input + button
+
+8. FOOTER
+   - Logo, links, copyright
+
+Make it fast, clean, and conversion-focused.`,
+
+    tags: ["startup", "waitlist", "minimal", "clean", "saas"],
+    difficulty: "Easy",
+    tool: "v0",
+    free: true,
+  },
+  {
+    id: "learnify-education",
+    title: "Learnify — Online Course Platform",
+    category: "education",
+    style: "Friendly Education · Accessible · Blue/Green · Single file",
+    description:
+      "A friendly, accessible online course platform template. Features a course catalog, course detail preview, instructor section, and a clean learning dashboard.",
+    previewImage: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for an online course platform called "Learnify".
+
+FONTS
+- Google Fonts Inter (400, 500, 600, 700)
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #ffffff
+- Surface: #f0fdf4
+- Border: #bbf7d0
+- Text primary: #14532d
+- Text secondary: #166534
+- Accent: #16a34a (green)
+
+STRUCTURE
+1. HEADER
+   - Logo "Learnify" + nav: Courses, About, Pricing, Login
+   - CTA: "Start Learning"
+
+2. HERO
+   - Left: H1 "Learn new skills from experts", subtitle, CTA buttons
+   - Right: Course card mockup or illustration
+   - Soft green gradient background
+
+3. COURSE CATALOG
+   - Filter tabs: All, Design, Development, Business, Marketing
+   - Course cards: thumbnail, title, instructor, rating, price
+   - 4-column grid
+
+4. FEATURES
+   - Why Learnify: Expert instructors, Hands-on projects, Certificate, Lifetime access
+   - Icon grid
+
+5. TESTIMONIALS
+   - 3 student testimonials in cards
+   - Star ratings
+
+6. FOOTER
+   - Links, newsletter, social
+
+IMAGES
+- https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80
+- https://images.unsplash.com/photo-1516321318423-f06f85e504b0?w=600&q=80
+- https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80
+
+Make it friendly, accessible, and encouraging.`,
+
+    tags: ["education", "courses", "friendly", "accessible", "learning"],
+    difficulty: "Medium",
+    tool: "Bolt",
+    free: true,
+  },
+  {
+    id: "vortex-blog",
+    title: "Vortex — Content-First Blog Template",
+    category: "blog",
+    style: "Content-First Blog · Typography · Clean · Single file",
+    description:
+      "A typography-focused blog template for writers and publications. Features a clean reading experience, newsletter signup, related posts, and a minimal design system.",
+    previewImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for a typography-focused blog template called "Vortex".
+
+FONTS
+- Google Fonts Merriweather (400, 700) for body text
+- Google Fonts Inter (400, 500, 600) for UI elements
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #ffffff
+- Text primary: #1a1a1a
+- Text secondary: #525252
+- Accent: #2563eb (blue for links)
+
+STRUCTURE
+1. HEADER
+   - Logo "Vortex" left
+   - Nav: Home, Articles, About, Subscribe
+   - Search icon
+
+2. FEATURED POST
+   - Large hero image
+   - Category tag
+   - Title: large, bold
+   - Excerpt + author + date + read time
+
+3. POST GRID
+   - 3 columns on desktop, 1 on mobile
+   - Each card: image, category, title, excerpt, author, date
+   - Clean cards with subtle hover shadow
+
+4. NEWSLETTER
+   - "Subscribe to our newsletter"
+   - Email input + button
+   - Minimal, centered
+
+5. SIDEBAR (on post page)
+   - About author
+   - Popular posts
+   - Categories list
+   - Tags cloud
+
+6. FOOTER
+   - Logo, copyright, social links
+
+TYPOGRAPHY
+- Body: 18px, line-height 1.8
+- Max-width 680px for readability
+- Generous margins
+
+Make it feel like a premium publication.`,
+
+    tags: ["blog", "typography", "content", "minimal", "writing"],
+    difficulty: "Easy",
+    tool: "Any",
+    free: true,
+  },
+  {
+    id: "pulse-mobile-app",
+    title: "Pulse — Mobile App Landing Page",
+    category: "mobile-app",
+    style: "Mobile App · Vibrant · App Store · Single file",
+    description:
+      "A vibrant mobile app landing page for a fitness or productivity app. Features phone mockups, feature highlights, testimonials, and app store download buttons.",
+    previewImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
+    preview: `Create a single self-contained HTML file (index.html) for a mobile app landing page called "Pulse".
+
+FONTS
+- Google Fonts Inter (400, 500, 600, 700)
+- Preconnect to https://fonts.googleapis.com
+
+COLORS
+- Background: #0f0f23
+- Surface: #1a1a35
+- Border: #2d2d5a
+- Text primary: #ffffff
+- Text secondary: #a5b4fc
+- Accent: #6366f1 (indigo)
+- Accent 2: #ec4899 (pink)
+
+STRUCTURE
+1. HERO
+   - Dark background with gradient orbs/blobs
+   - Left: H1 "Your personal health companion", subtitle, App Store + Play Store buttons
+   - Right: Phone mockup using CSS (rounded rectangle with screen content)
+
+2. FEATURES
+   - Alternating layout: text left/image right, then swap
+   - Each feature: icon, title, description
+   - Soft gradient cards
+
+3. HOW IT WORKS
+   - 3 steps: Download, Personalize, Track
+   - Step numbers with gradient circles
+
+4. TESTIMONIALS
+   - User avatars, quotes, ratings
+   - Horizontal scroll or grid
+
+5. DOWNLOAD CTA
+   - Full-width gradient section
+   - "Download Pulse today"
+   - App store buttons
+
+6. FOOTER
+   - Links, social, copyright
+
+ANIMATIONS
+- Floating phone mockup
+- Gradient orbs animation
+- Scroll reveal
+
+Make it feel energetic and modern.`,
+
+    tags: ["mobile-app", "fitness", "vibrant", "app-store", "productivity"],
+    difficulty: "Medium",
+    tool: "v0",
+    free: true,
+  },
 ];

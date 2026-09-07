@@ -104,11 +104,6 @@ export default function RootLayout({
           }}
         />
         <script
-          dangerouslySetInnerHTML={{
-            __html: `aclib.runInPagePush({ zoneId: "12108522", maxAds: 2 });`,
-          }}
-        />
-        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({

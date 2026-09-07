@@ -100,6 +100,11 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
+            __html: `aclib.runVideoSlider({ zoneId: "12118094" });`,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
             __html: `aclib.runInPagePush({ zoneId: "12108522", maxAds: 2 });`,
           }}
         />

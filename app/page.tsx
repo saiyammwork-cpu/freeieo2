@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Zap, Sparkles, ExternalLink, Star, TrendingUp, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ToolCard } from "@/components/tools/tool-card";
 import { tools } from "@/data/tools";
 import { Suspense } from "react";
 import { Metadata } from "next";
@@ -36,7 +37,6 @@ function ToolCardsSkeleton() {
 }
 
 function FeaturedTools() {
-  const { ToolCard } = require("@/components/tools/tool-card");
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {featuredTools.map((tool, idx) => (
@@ -47,7 +47,6 @@ function FeaturedTools() {
 }
 
 function TrendingTools() {
-  const { ToolCard } = require("@/components/tools/tool-card");
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {trendingTools.map((tool, idx) => (
